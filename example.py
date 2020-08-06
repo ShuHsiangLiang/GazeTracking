@@ -6,8 +6,14 @@ Check the README.md for complete documentation.
 import cv2
 from gaze_tracking import GazeTracking
 
+import os
+import tkinter as tk
+from tkinter import filedialog
+
 gaze = GazeTracking()
-webcam = cv2.VideoCapture(0)
+selectpath = os.getcwd()
+video = filedialog.askopenfilename(initialdir=selectpath,title="Select Video File",filetypes=(("Video Files", "*.mp4"), ("All Files", "*.*")))
+webcam = cv2.VideoCapture(video)
 
 while True:
     # We get a new frame from the webcam
